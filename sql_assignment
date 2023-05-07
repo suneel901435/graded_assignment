@@ -1,0 +1,77 @@
+EXCERCISE_1 :
+
+Create a database schema for the online consultation and therapy website. The database should contain the following tables:-
+
+Doctor table:- The table should contain the attributes such as id, name, specialization, etc.
+
+Appointments table:- The table should contain information related to appointments set up by doctors and patients.
+
+Patient table:- The table should contain information on patients.
+
+Reviews table:- This table should contain reviews posted by patients.
+
+
+NOTE:- Use proper constraints on the attributes such as primary key, not null and etc.
+
+-- QUERIES:
+
+create database THERAPY;
+
+CREATE TABLE DOCTOR (DOCTOR_ID INT PRIMARY KEY NOT NULL,DOCTOR_NAME VARCHAR(20) NOT NULL,SPECIALIZATION VARCHAR(20) NOT NULL);
+
+CREATE TABLE APPOINTMENT(APPOINTMENT_DATE DATE NOT NULL,NAME VARCHAR(20) NOT NULL,PURPOSE VARCHAR(20));
+
+CREATE TABLE PATIENTS(OP_NUMBER INT PRIMARY KEY NOT NULL,PATIENT_NAME VARCHAR(20) NOT NULL,PATIENT_AGE INT NOT NULL,GENDER VARCHAR(10) NOT NULL);
+
+CREATE TABLE REVIEWS(REVIEWER_NAME VARCHAR(20) NOT NULL,REVIEW VARCHAR(20) NOT NULL,REVIEW_RATING INT NOT NULL);
+
+
+Exercise 2 (5 marks):
+
+Contact Table
+
+Id      Email     fname   lname   company   Active_flag   opt_out
+
+123     a@a.com   Kian    Seth      ABC        1             1
+
+133     b@a.com   Neha    Seth      ABC        1             0
+
+234     c@c.com   Puru    Malik     CDF        0             0
+
+342     d@d.com   Sid     Maan      TEG        1            0
+
+
+QUESTIONS:
+
+Select all columns from the contact table where the active flag is 1
+
+Deactivate contacts who are opted out 
+
+Delete all the contacts who have the company name as ‘ABC’
+
+Insert a new row with id as 658, name as ‘mili’, email as ‘mili@gmail.com’, the company as ‘DGH’, active flag as 1, opt-out flag as 1
+
+Pull out the unique values of the company column 
+
+Update name “mili” to “niti”.
+
+QUERIES-SOLUTIONS:
+
+-- SELECT ALL THE COLUMNS WHERE ACTIVE FLAG=1
+SELECT * FROM CONTACT WHERE ACTIVE_FLAG=1
+
+-- DEACTIVATE CONTACTS WHO ARE OPTED OUTPUT
+UPDATE CONTACT SET ACTIVE_FLAG=0 WHERE OUTPUT=1
+
+-- DELETE ALL CONTACTS WHO HAVE COMPANY NAME AS ABC
+DELETE FROM CONTACT WHERE COMPANY="ABC";
+
+-- INSERTING A NEW ROW
+INSERT INTO CONTACT VALUES(658,'MILI@GMAIL.COM','MILI',' ','DGH',1,1)
+
+-- PULL OUT THE UNIQUE VALUES OF COMPANY COLUMN
+SELECT DISTINCT(COMPANY) FROM CONTACT 
+
+-- UPDATE NAME AS NITI WHERE NAME IS MILI IN CONTACT TABLE
+UPDATE CONTACT SET FNAME='NITI' WHERE FNAME='MILI'
+
